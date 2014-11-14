@@ -23,16 +23,15 @@ info = ""
  
 i = 0
 while i != iterationLigne:
-    if nom in listLigne[i]:
-        info = listLigne[i]
+    if nom in listLigne[i].split(":")[0]:
+        info = listLigne[i].split(":")
         break
     else:
         i = i + 1
         
 if info == "":
     print ("Error: " + nom + " is not an user name valid.")
-else:
-    info = info.split(":")    
+else:  
     print("The information asked is the following:")
     print("User Name: " + info[0])
     print("User Identifier: " + info[2])
