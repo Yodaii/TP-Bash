@@ -35,8 +35,11 @@ i = 0
 
 # boucle while qui s'arrete lorsque l on a parcouru toutes la liste
 while i != iterationLigne:
+<<<<<<< HEAD
     # si le nom rentrer correspond a la premiere valeur de la chaine contenu a l emplacement i de la liste 
     # alors on recupere les informations du nom teste et on sort de la boucle
+=======
+>>>>>>> origin/master
     if nom in listLigne[i].split(":")[0]:
         info = listLigne[i].split(":")
         break
@@ -48,8 +51,12 @@ while i != iterationLigne:
 # alors on le specifie q l utilisateur       
 if info == "":
     print ("Error: " + nom + " is not an user name valid.")
+<<<<<<< HEAD
 # sinon on affiche les informations
 else:
+=======
+else:  
+>>>>>>> origin/master
     print("The information asked is the following:")
     print("User Name: " + info[0])
     print("User Identifier: " + info[2])
