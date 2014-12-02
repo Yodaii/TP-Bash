@@ -1,0 +1,51 @@
+#!/bin/bash
+# Ici nous demandons le mot de passe à l'utilisateur, que nous stockons dans une variable pass
+echo "Type you're password"
+# Lecture de ce que rentre l'utilisateur
+read pass
+
+
+# Test afin de déterminer si le nombre de caractère est supérieur ou égal à 8 
+if [ ${#pass} -ge 8 ]
+# Si c'est le cas, alors le message d'erreur sera vide
+then 
+    message1=" "
+else
+# sinon il précisera l'erreur
+     
+     message1=" Il manque des caracteres ( minimum 8)"
+fi
+
+
+# Ici arrive le test sur la contenance de variable numériques.
+# Si le mot de passe stoqué est égal à l'expression réguliere définir (tout mot contenant un chiffre)
+if [[ $pass = *[0-9]* ]] 
+# Alors le message d'erreur sera vide
+then
+	
+	message2=" "
+# Sinon le message d'erreur précisera l'erreur 
+else
+
+	message2=" Il faut au moins un chiffre dans votre mot de passe "
+fi
+# Enfin la derniere boucle if, vérifiera la présence de caractères non alpha-numérique.
+# En effet l'expression réguliere correspond à tous les mots en contenant au moins une
+# Alors il ne nous reste plus qu'a comparer notre chaîne avec cette expression
+if [[ $pass = *[^0-9a-zA-Z]* ]]
+then
+# Si il y a correspondance, alors pas de message d'erreur.
+
+	message3=" "
+else 
+# Si aucune correspondance, alors le message précise quelle erreur
+
+	message3=" Il manque un caractere non alpha-numerique "
+fi
+
+
+
+# Enfin nous affichons les messages d'erreurs, ou pas s'il n'y en a pas.
+echo $message1
+echo $message2
+echo $message3
